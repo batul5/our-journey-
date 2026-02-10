@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #ff4d94; min-height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>The Official Record</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sacramento&display=swap');
+
+        /* FORCING THE BACKGROUND TO NEVER BE HALF */
+        html { 
+            background: #ff4d94; 
+            height: 100%; 
+            margin: 0; 
+        }
+        body { 
+            margin: 0; padding: 0; width: 100%; min-height: 100vh;
+            background: linear-gradient(to bottom, #ff99cc 0%, #ff4d94 100%) fixed;
+            font-family: 'Poppins', sans-serif;
+            display: flex; flex-direction: column; align-items: center;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 20px 150px 20px;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        header h1 { font-family: 'Sacramento', cursive; font-size: 50px; color: white; text-align: center; margin-bottom: 30px; }
+
+        /* CARDS WITH FULL TEXT */
+        .card { 
+            border-radius: 15px; padding: 22px; margin-bottom: 25px; 
+            width: 100%; box-sizing: border-box; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); cursor: pointer;
+            border: 3px solid white;
+        }
+        .c1 { background: #000; color: white; border-style: dashed; }
+        .c2 { background: #0047ab; color: white; border-style: double; }
+        .c3 { background: #dc143c; color: white; border-radius: 40px 5px; }
+        .c4 { background: #800080; color: white; border-style: dotted; }
+        .c5 { background: #ff1493; color: white; border-style: solid; }
+        .c6 { background: #ffffff; color: #333; border: 4px solid #000; }
+
+        .event-header { font-weight: 700; font-size: 13px; text-transform: uppercase; display: block; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .details { display: none; margin-top: 15px; font-size: 15px; line-height: 1.6; }
+
+        /* GALLERY */
+        .pic-box { display: none; width: 100%; background: white; padding: 12px 12px 55px 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-top: 30px; box-sizing: border-box; }
+        .pic-box.active { display: block; transform: rotate(-1.5deg); }
+        .pic-box img { width: 100%; height: auto; display: block; border: 1px solid #ddd; }
+        .caption { font-family: 'Sacramento', cursive; font-size: 38px; color: #333; margin-top: 15px; text-align: center; }
+
+        .pop-btn { background: #ffd700; color: #000; border: none; padding: 20px; border-radius: 50px; font-weight: bold; width: 100%; margin-top: 25px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .final-btn { background: white; color: #ff4d94; padding: 20px; border-radius: 50px; width: 100%; font-weight: bold; margin-top: 40px; display: none; border: none; }
+        .secret-msg { display: none; background: white; padding: 30px; border-radius: 20px; color: #d63384; font-weight: bold; text-align: center; margin-top: 30px; border: 4px solid #ff4d94; line-height: 1.5; }
+
+        .sparkle { position: fixed; pointer-events: none; z-index: 1; animation: drift 5s infinite linear; color: white; }
+        @keyframes drift { 0% { transform: translateY(110vh); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-10vh); opacity: 0; } }
+    </style>
+</head>
+<body onclick="startAudio()">
+
+<div class="wrapper">
+    <header><h1>Our Journey ❤️</h1></header>
+
+    <div class="card c1" onclick="toggle(this)">
+        <span class="event-header">CHAPTER 1: THE START</span>
+        <strong>Our first conversation in a nutshell</strong>
+        <div class="details">6 June 2024: A lot of "u got me there" and us both being caught scrolling through reels. You were so determined to be responsible and get to bed early to avoid those infamous work blunders, but I think we can both agree that meeting you was the best "blunder" that ever happened to me.</div>
+    </div>
+
+    <div class="card c2" onclick="toggle(this)">
+        <span class="event-header">CHAPTER 2: THE BRIBE</span>
+        <strong>Our first meeting</strong>
+        <div class="details">3rd April 2025: Finally meeting in person was a high-stakes operation. You showed up with so many lovely gifts that I actually started wondering if you were trying to bribe me, or if you had committed a massive blunder at work and were looking for a place to hide. Either way, the gifts worked, and I decided to keep you.</div>
+    </div>
+
+    <div class="card c3" onclick="toggle(this)">
+        <span class="event-header">CHAPTER 3: THE 24-HOUR RULE</span>
+        <strong>Valentines day according to him</strong>
+        <div class="details">15th Feb 2025: In a move that surprised absolutely no one, you managed to miss the actual date. While most people celebrate on the 14th, you decided that a 24-hour blunder was the way to go. However, showing up a day late is a bold strategy, but pulling out The Ring is basically a "Get Out of Jail Free" card. Well played.</div>
+    </div>
+
+    <div class="card c4" onclick="toggle(this)">
+        <span class="event-header">CHAPTER 4: SURVIVAL</span>
+        <strong>Trip to Mombasa</strong>
+        <div class="details"><strong>Best Meal:</strong> 10/10 Road Runner at MN Cafe. (Despite my constant reminders, you seem to have developed permanent amnesia regarding how to find the cafe again).<br><br><strong>Survival:</strong> Wasini was a legendary 10/10 trip, though we officially confirmed I am not a fish. A major swimming blunder, but the vibes were perfect.<br><br><strong>Parents meeting:</strong> Success! No cops, just vibes.</div>
+    </div>
+
+    <div class="card c5" onclick="toggle(this)">
+        <span class="event-header">CHAPTER 5: THE ULTIMATE BLUNDER</span>
+        <strong>Officially Engaged!</strong>
+        <div class="details">8th August 2025: After enough bribery to fund a small country, you finally committed the biggest blunder of all and asked me to marry you. I’d say I was shocked, but after the ring on Valentine’s Day, I figured you were either building a life with me or preparing me for witness protection!</div>
+    </div>
+
+    <div class="card c6" onclick="toggle(this)">
+        <span class="event-header">CHAPTER 6: THE ADDICTION</span>
+        <strong>White Sauce Chips</strong>
+        <div class="details">18th October 2025: You are officially addicted to my white sauce chips. It's a shame your memory for the Road Runner cafe isn't as strong as your appetite for my cooking! We actually stayed on the sand this time instead of fighting for our lives in the water. Progress!</div>
+    </div>
+
+    <div id="p1" class="pic-box active"><img src="pic1.jpg"><div class="caption">Perfect</div></div>
+    <div id="p2" class="pic-box"><img src="pic2.jpg"><div class="caption">Beauty</div></div>
+    <div id="p3" class="pic-box"><img src="pic3.jpg"><div class="caption">Stunning</div></div>
+    <div id="p4" class="pic-box"><img src="pic4.jpg"><div class="caption">Elegant</div></div>
+    <div id="p5" class="pic-box"><img src="pic5.jpg"><div class="caption">Together</div></div>
+    <div id="p6" class="pic-box"><img src="pic6.jpg"><div class="caption">Adorable</div></div>
+    <div id="p7" class="pic-box"><img src="pic7.jpg"><div class="caption">Pure Joy</div></div>
+    <div id="p8" class="pic-box"><img src="pic8.jpg"><div class="caption">Everything</div></div>
+    <div id="p9" class="pic-box"><img src="pic9.jpg"><div class="caption">Forever</div></div>
+    <div id="p10" class="pic-box"><img src="pic10.jpg"><div class="caption">Soulmate</div></div>
+
+    <button class="pop-btn" id="popBtn" onclick="next()">✨ POP FOR NEXT PHOTO 💥</button>
+    <button id="final-btn" class="final-btn" onclick="reveal()">TAP FOR THE FINAL TRUTH 💌</button>
+    
+    <div id="secret" class="secret-msg">
+        "Honestly, the only reason I’m still here is because I haven't finished teaching you the way to the MN Cafe yet. You're lucky my white sauce chips are so good—they're the only thing keeping this relationship from being your biggest blunder. Happy Valentine's! ❤️"
+    </div>
+</div>
+
+<script>
+    let audioCtx;
+    function startAudio() { if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); if(audioCtx.state==='suspended') audioCtx.resume(); }
+    
+    function playPop() {
+        if(!audioCtx) return;
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type = 'sine'; o.frequency.setValueAtTime(800, audioCtx.currentTime);
+        g.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        o.connect(g); g.connect(audioCtx.destination);
+        o.start(); o.stop(audioCtx.currentTime + 0.1);
+    }
+
+    function toggle(e) { playPop(); let d = e.querySelector('.details'); d.style.display = (d.style.display==='block')?'none':'block'; }
+    
+    let cur = 1;
+    function next() {
+        playPop();
+        document.getElementById('p'+cur).classList.remove('active');
+        cur++;
+        if(cur<=10) { document.getElementById('p'+cur).classList.add('active'); }
+        else { document.getElementById('popBtn').style.display='none'; document.getElementById('final-btn').style.display='block'; }
+    }
+
+    function reveal() { playPop(); document.getElementById('secret').style.display='block'; window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'}); }
+
+    setInterval(() => {
+        let s = document.createElement('div'); s.className = 'sparkle';
+        s.innerHTML = ['✨','❤️','⭐'][Math.floor(Math.random()*3)];
+        s.style.left = Math.random()*100+'vw';
+        s.style.fontSize = Math.random()*20+10+'px';
+        document.body.appendChild(s); setTimeout(()=>s.remove(), 5000);
+    }, 400);
+</script>
+</body>
+</html>
