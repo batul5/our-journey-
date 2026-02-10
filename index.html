@@ -7,7 +7,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Sacramento&display=swap');
 
-        /* FORCING THE BACKGROUND TO NEVER BE HALF */
         html { 
             background: #ff4d94; 
             height: 100%; 
@@ -31,7 +30,6 @@
 
         header h1 { font-family: 'Sacramento', cursive; font-size: 50px; color: white; text-align: center; margin-bottom: 30px; }
 
-        /* CARDS WITH FULL TEXT */
         .card { 
             border-radius: 15px; padding: 22px; margin-bottom: 25px; 
             width: 100%; box-sizing: border-box; 
@@ -48,7 +46,6 @@
         .event-header { font-weight: 700; font-size: 13px; text-transform: uppercase; display: block; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.2); }
         .details { display: none; margin-top: 15px; font-size: 15px; line-height: 1.6; }
 
-        /* GALLERY */
         .pic-box { display: none; width: 100%; background: white; padding: 12px 12px 55px 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); margin-top: 30px; box-sizing: border-box; }
         .pic-box.active { display: block; transform: rotate(-1.5deg); }
         .pic-box img { width: 100%; height: auto; display: block; border: 1px solid #ddd; }
@@ -103,16 +100,16 @@
         <div class="details">18th October 2025: You are officially addicted to my white sauce chips. It's a shame your memory for the Road Runner cafe isn't as strong as your appetite for my cooking! We actually stayed on the sand this time instead of fighting for our lives in the water. Progress!</div>
     </div>
 
-    <div id="p1" class="pic-box active"><img src="pic1.jpg"><div class="caption">Perfect</div></div>
-    <div id="p2" class="pic-box"><img src="pic2.jpg"><div class="caption">Beauty</div></div>
-    <div id="p3" class="pic-box"><img src="pic3.jpg"><div class="caption">Stunning</div></div>
-    <div id="p4" class="pic-box"><img src="pic4.jpg"><div class="caption">Elegant</div></div>
-    <div id="p5" class="pic-box"><img src="pic5.jpg"><div class="caption">Together</div></div>
-    <div id="p6" class="pic-box"><img src="pic6.jpg"><div class="caption">Adorable</div></div>
-    <div id="p7" class="pic-box"><img src="pic7.jpg"><div class="caption">Pure Joy</div></div>
-    <div id="p8" class="pic-box"><img src="pic8.jpg"><div class="caption">Everything</div></div>
-    <div id="p9" class="pic-box"><img src="pic9.jpg"><div class="caption">Forever</div></div>
-    <div id="p10" class="pic-box"><img src="pic10.jpg"><div class="caption">Soulmate</div></div>
+    <div id="p1" class="pic-box active"><img src="./pic1.jpg"><div class="caption">Perfect</div></div>
+    <div id="p2" class="pic-box"><img src="./pic2.jpg"><div class="caption">Beauty</div></div>
+    <div id="p3" class="pic-box"><img src="./pic3.jpg"><div class="caption">Stunning</div></div>
+    <div id="p4" class="pic-box"><img src="./pic4.jpg"><div class="caption">Elegant</div></div>
+    <div id="p5" class="pic-box"><img src="./pic5.jpg"><div class="caption">Together</div></div>
+    <div id="p6" class="pic-box"><img src="./pic6.jpg"><div class="caption">Adorable</div></div>
+    <div id="p7" class="pic-box"><img src="./pic7.jpg"><div class="caption">Pure Joy</div></div>
+    <div id="p8" class="pic-box"><img src="./pic8.jpg"><div class="caption">Everything</div></div>
+    <div id="p9" class="pic-box"><img src="./pic9.jpg"><div class="caption">Forever</div></div>
+    <div id="p10" class="pic-box"><img src="./pic10.jpg"><div class="caption">Soulmate</div></div>
 
     <button class="pop-btn" id="popBtn" onclick="next()">✨ POP FOR NEXT PHOTO 💥</button>
     <button id="final-btn" class="final-btn" onclick="reveal()">TAP FOR THE FINAL TRUTH 💌</button>
@@ -124,8 +121,11 @@
 
 <script>
     let audioCtx;
-    function startAudio() { if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); if(audioCtx.state==='suspended') audioCtx.resume(); }
-    
+    function startAudio() { 
+        if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); 
+        if(audioCtx.state==='suspended') audioCtx.resume(); 
+    }
+
     function playPop() {
         if(!audioCtx) return;
         const o = audioCtx.createOscillator();
